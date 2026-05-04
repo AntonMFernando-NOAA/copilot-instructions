@@ -16,7 +16,7 @@ if git diff --quiet && git diff --cached --quiet; then
     exit 0
 fi
 
-git add copilot-instructions.md work_log.md error_log.md work_logs/ use_branch.sh
+git add copilot-instructions.md work_log.md error_log.md work_logs/ use_branch.sh auto_log_work.sh
 git commit -m "auto: nightly sync ${TIMESTAMP}"
 git push origin main
 
