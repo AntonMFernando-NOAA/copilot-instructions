@@ -67,11 +67,12 @@ JSON
 
 echo "Updated: ${VSCODE_SETTINGS}"
 
-# Ensure .vscode/settings.json is gitignored
-GITIGNORE="${REPO_ROOT}/.gitignore"
-if ! grep -qF '.vscode/settings.json' "${GITIGNORE}" 2>/dev/null; then
-    echo '.vscode/settings.json' >> "${GITIGNORE}"
-    echo "Added .vscode/settings.json to .gitignore"
+# Exclude .vscode/settings.json locally without touching the repo's .gitignore
+# .git/info/exclude is the per-clone local equivalent of .gitignore — never committed
+EXCLUDE="${REPO_ROOT}/.git/info/exclude"
+if ! grep -qF '.vscode/settings.json' "${EXCLUDE}" 2>/dev/null; then
+    echo '.vscode/settings.json' >> "${EXCLUDE}"
+    echo "Added .vscode/settings.json to .git/info/exclude (local only)"
 fi
 
 echo "Done. Reload VS Code window to apply (Ctrl+Shift+P → 'Developer: Reload Window')."
