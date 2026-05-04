@@ -56,3 +56,18 @@ was a no-op.
 **Notes:** Submodule pointer changes (sorc/*) were present in working tree — unstaged
 with `git restore --staged sorc/...` before committing. Never commit submodule pointer
 changes unless explicitly requested.
+
+## 2026-05-04 20:00 UTC (auto)
+**Branch:** `feature/gfsv17-forecast_manager`
+**New commits:**
+- `52ee7b8` [gfs.v17] Eliminate Wave Postprocessing Warnings and Suppress Creation of Empty Output Directories (#4831)
+- `91e4b6b` [dev/gfs.v17] Update the production/GFS.v17 UFS WM hash (#4767)
+- `1e94a9d` fcst_mgr: port fcst_done graceful-exit sentinel and postdet consolidation from develop branch
+- `dcac115` fcst_mgr: replace HOMEglobal/USHglobal/SCRglobal with HOMEgfs/USHgfs/SCRgfs for CI compatibility
+- `c630069` ush: use MOM6 outputlog as sentinel in forecast manager
+- `dd24ec5` Fix MOM6 sentinel dependencies in FSM, manager, and archive
+- `772e93d` Rename forecast_mgr.sh to forecast_manager.sh and update related references in exglobal_forecast_manager.sh
+- `8e69023` Rename forecast_mgr to forecast_manager across scripts and configurations for consistency
+- `b56eff1` Forecast manager: rename mgr->manager, simplify init timeout
+- `41a2aea` Remove changelog and cleanup script updates for MOM6/CICE sentinel logs; refactor forecast manager timeout handling
+
