@@ -71,3 +71,12 @@ changes unless explicitly requested.
 - `b56eff1` Forecast manager: rename mgr->manager, simplify init timeout
 - `41a2aea` Remove changelog and cleanup script updates for MOM6/CICE sentinel logs; refactor forecast manager timeout handling
 
+
+## 2026-05-07 18:00 UTC (auto)
+**Branch:** `feature/gfsv17-forecast_manager`
+**New commits:**
+- `c7e26cb` v17 Hot fix: only untar if file exists (#4880)
+- `a4a1be1` (dev/gfs.v17) Update verfozn and analdiag scripts to handle missing ozone data (#4883)
+- `22c27fe` (dev/gfs.v17) Hotfix for ozone archiving (#4888)
+- `b85d10d` (dev/gfs.v17) Reinstate updates from dev/gfs.v17_20260505 following hotfixes (#4887)
+
