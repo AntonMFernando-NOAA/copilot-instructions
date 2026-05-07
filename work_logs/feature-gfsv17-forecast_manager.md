@@ -86,3 +86,9 @@ changes unless explicitly requested.
 **New commits:**
 - `9aff812` Enhance ocean product release logic to check file size before proceeding
 
+
+## 2026-05-07 20:00 UTC (auto)
+**Branch:** `feature/gfsv17-forecast_manager`
+**New commits:**
+- `085912a` Fix datajob path in fcst_manager to include '_forecast' suffix for clarity
+
