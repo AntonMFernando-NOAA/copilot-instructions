@@ -80,3 +80,9 @@ changes unless explicitly requested.
 - `22c27fe` (dev/gfs.v17) Hotfix for ozone archiving (#4888)
 - `b85d10d` (dev/gfs.v17) Reinstate updates from dev/gfs.v17_20260505 following hotfixes (#4887)
 
+
+## 2026-05-07 19:00 UTC (auto)
+**Branch:** `feature/gfsv17-forecast_manager`
+**New commits:**
+- `9aff812` Enhance ocean product release logic to check file size before proceeding
+
