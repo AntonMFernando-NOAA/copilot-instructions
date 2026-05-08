@@ -68,6 +68,16 @@ Working directory base: /scratch3/NCEPDEV/global/Anton.Fernando/
 - Work log (full history): /home/Anton.Fernando/copilot-instructions/work_log.md
 - Error log (debug history): /home/Anton.Fernando/copilot-instructions/error_log.md
 
+## Local Repo Track List
+
+These local clones are tracked for context and cross-referencing:
+
+| Path | Purpose |
+|------|---------|
+| /scratch3/NCEPDEV/global/Anton.Fernando/global-workflow_gfsv17 | GFSv17 development (active, branch: feature/gfsv17-forecast_manager) |
+| /scratch3/NCEPDEV/global/Anton.Fernando/global-workflow | Upstream clone / reference baseline |
+| /scratch3/NCEPDEV/global/Anton.Fernando/global-workflow0 | Secondary clone / scratch testing |
+
 ## Recent Work (keep to last 5 entries; full history in work_log.md)
 
 - 2026-05-04 | feature/gfsv17-forecast_manager | Fixed MOM6 sentinel: replaced hardcoded
