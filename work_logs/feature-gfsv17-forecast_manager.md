@@ -100,3 +100,9 @@ changes unless explicitly requested.
 - `ff78b23` Fix MOM6 post-determination log time calculation to use forecast hour variable
 - `0a1170f` Fix MOM6 f120 sentinel: revert incorrect fhr fix and add FHMAX fallback
 
+
+## 2026-05-09 01:00 UTC (auto)
+**Branch:** `feature/gfsv17-forecast_manager`
+**New commits:**
+- `4fd224d` Fix forecast_manager.sh: write synthetic text for data-as-sentinel fallback
+
