@@ -116,3 +116,18 @@ changes unless explicitly requested.
 - `95a2777` Enhance forecast_manager.sh: add comments to clarify xtrace suppression for improved performance
 - `d05a009` Remove unnecessary ocean log file requirement from ocean_6hravg.yaml.j2
 
+
+## 2026-05-11 21:00 UTC (auto)
+**Branch:** `feature/gfsv17-forecast_manager`
+**New commits:**
+- `af5389f` Make COMOUT directories in regrid J-Job
+- `399e5bc` (dev/gfs.v17) Add WDQMS processing into GFSv17 (#4796)
+- `313512b` (dev/gfs.v17) NCO SPA requested ecflow updates (#4875)
+- `5dfbc02` (dev/gfs.v17) Wave prep -> wave init and wave clean up (#4878)
+- `865eed8` Do not trap exits within err_exit (#4896)
+- `efa4a48` Refactor forecast manager scripts: streamline segment handling and improve logging conditions
+- `f7f9375` update forecast_manager.sh
+- `7327443` Update ush/forecast_manager.sh
+- `482dd2b` Remove unnecessary comments and formatting from forecast_postdet.sh
+- `c916ca5` Fix reviewdog 403 error: switch reporter from github-pr-review to github-check
+
