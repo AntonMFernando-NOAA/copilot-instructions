@@ -131,3 +131,9 @@ changes unless explicitly requested.
 - `482dd2b` Remove unnecessary comments and formatting from forecast_postdet.sh
 - `c916ca5` Fix reviewdog 403 error: switch reporter from github-pr-review to github-check
 
+
+## 2026-05-14 15:00 UTC (auto)
+**Branch:** `feature/gfsv17-forecast_manager`
+**New commits:**
+- `5bfa589` Add ecflow scripts and triggers for forecast manager job
+
