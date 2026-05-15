@@ -77,3 +77,91 @@ block that reads metadata (not inside it), so they are always defined.
 **Notes:** Classic shell trap — local variable declarations inside a conditional branch
 are invisible to code that runs after the branch exits. Always initialise defensive
 variables at function/script scope before any conditional reads them.
+
+---
+
+## 2026-05-15 — forecast_manager.sh shfmt CI violations (3 bot fixup commits)
+
+**Error:** Three consecutive GitHub Actions bot commits were required to fix the same file
+(`ush/forecast_manager.sh`) because generated code violated shfmt formatting rules enforced
+by the global-workflow CI pipeline.
+
+**Root cause:** Two shfmt rules were not followed in the generated code:
+1. `2>/dev/null` written without a space → CI changed to `2> /dev/null`
+2. `continue  # comment` written with double space → CI changed to `continue # comment`
+
+**Fix:** Already recorded in `.github/copilot-instructions.md` of the repo. The rules are:
+- **Shell redirections**: always write `2> /dev/null` (space after `>`), never `2>/dev/null`
+- **Inline comments**: always use exactly one space before `#`, never two: `continue # reason`
+
+**Files:** `ush/forecast_manager.sh`
+
+**Notes:** shfmt is enforced via GitHub Actions on every push. These two violations will
+always trigger automated fixup commits. Check all generated shell code for these patterns
+before finalising. Use `grep "2>/dev/null\|  #" <file>` to catch violations quickly.
+
+---
+
+## 2026-05-15 — Last ocean output (f120) never copied to COM
+
+**Error:**
+```
+ERROR - file_utils: Source file '.../gfs.t18z.6hr_avg.f120.nc' does not exist and is required, ABORT!
+```
+The `oceanice_products` task for the last forecast hour (f120) failed because the file was not in `COMIN_OCEAN_HISTORY`.
+
+**Root cause (two interacting parts):**
+
+1. **MOM6 period-log timing**: MOM6 writes its averaging-period sentinel log at the START of the NEXT period, not the end of the current one. For the LAST averaging period (e.g., 114→120 h), there is no next period, so `DATA/YYYYMMDD.HH0000.mom6.06h` is **never written** by the model.  The manager (`forecast_manager.sh`) polls for this log, the `fcst_done_idle` countdown reaches `FCST_MGR_DONE_IDLE_MAX=3`, and the manager exits with a WARNING—without ever copying `gfs.t18z.6hr_avg.f120.nc` to COM.
+
+2. **Rocoto `or` dependency**: The ocean-products Rocoto task depends on **either** the COM log appearing **or** the `gfs_fcst_manager` metatask completing (`dep_condition='or'`). The manager completes (having skipped the last period), the `gfs_fcst_manager` metatask succeeds, which fires ALL ocean-products tasks—including f120—even though its data file was never placed in COM.
+
+**Fix:** Added a **model-done data-existence fallback** in `forecast_manager.sh`. When:
+- `FCST_DONE_SENTINEL` is present (model is done), **and**
+- `local_log` (model period log) does not exist, **and**
+- `local_log != local_data` (this is a model-log-sentinel entry, not data-as-sentinel), **and**
+- `local_data` (the .nc output file) exists
+
+...the manager treats data-file existence as the trigger and writes a **synthetic** `com_log` (`basename completed timestamp`) to signal completion to downstream Rocoto tasks, instead of trying to `cpfs` the non-existent period log.
+
+**Files:** `ush/forecast_manager.sh`
+
+**Notes:** The fallback fires in the first poll cycle after `FCST_DONE_SENTINEL` appears, which is safe because: the model is provably done, the 30-second poll interval has elapsed, and `FCST_DONE_SENTINEL` is only written after `srun` returns (model fully finished). This is similar to the data-as-sentinel path used for CICE, but triggered by model completion rather than by the data file itself acting as the log.
+
+---
+
+## 2026-05-15 — shfmt: multi-line `[[ ]]` condition format (4th bot fixup)
+
+**Error:**
+```
+ush/forecast_manager.sh:81:-            if [[ "${component}" == "ocn" \
+ush/forecast_manager.sh:82:-                  && "${local_log[i]}" == "${local_log[count-1]}" \
+ush/forecast_manager.sh:83:-                  && -n "${FCST_DONE_SENTINEL:-}" && -f "${FCST_DONE_SENTINEL}" \
+ush/forecast_manager.sh:84:-                  && -f "${local_data[i]}" ]]; then
+ush/forecast_manager.sh:81:+            if [[ "${component}" == "ocn" &&
+ush/forecast_manager.sh:82:+                "${local_log[count - 1]}" &&
+...
+```
+
+**Root cause:** Two additional shfmt rules violated when writing multi-line `[[ ]]` conditions:
+1. `&&` must go at the **end** of the line, not at the start of the next line with a `\` continuation
+2. Arithmetic expressions inside `[[ ]]` (e.g. array indices) require spaces around `-`: `count - 1` not `count-1`
+3. Continuation lines indent by 4 spaces relative to the `if`, not aligned to `[[`
+
+**Wrong:**
+```bash
+if [[ "${component}" == "ocn" \
+      && "${local_log[i]}" == "${local_log[count-1]}" \
+      && -f "${FCST_DONE_SENTINEL}" ]]; then
+```
+
+**Correct (shfmt):**
+```bash
+if [[ "${component}" == "ocn" &&
+    "${local_log[i]}" == "${local_log[count - 1]}" &&
+    -f "${FCST_DONE_SENTINEL}" ]]; then
+```
+
+**Files:** `ush/forecast_manager.sh`
+
+**Notes:** Always use `&&` at end-of-line for multi-line `[[ ]]`. Use `grep "\\ &&\|\\\\$" <file>` to catch backslash-continuation violations quickly.

@@ -19,6 +19,9 @@ Working directory base: /scratch3/NCEPDEV/global/Anton.Fernando/
 - Follow the existing style in any file being edited; never introduce a new style.
 - Use `"${variable}"` (double-quoted braces) for all variable expansions.
 - Use 2-space indentation for shell scripts unless the file already uses a different width.
+- **Shell redirections**: always write `2> /dev/null` (space after `>`), never `2>/dev/null` — shfmt CI enforces this.
+- **Inline comments**: always use exactly one space before `#` (e.g. `continue # reason`), never double-space (`continue  # reason`) — shfmt CI enforces this.
+- **Multi-line `[[ ]]` conditions**: place `&&` at the **end** of each line (never `\` continuation with `&&` at the start of the next line); indent continuation lines by 4 spaces relative to the `if`; wrap array arithmetic in `$(( ))` to avoid shfmt spacing rewrites (e.g. `${arr[$((count - 1))]}` not `${arr[count-1]}`). shfmt CI enforces all three.
 - Use `[[ ]]` for conditionals, `(( ))` for arithmetic.
 - No trailing whitespace; no blank lines added at end of file unless already present.
 - Prefer `$()` over backticks.
