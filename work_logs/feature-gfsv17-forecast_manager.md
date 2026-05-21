@@ -137,3 +137,57 @@ changes unless explicitly requested.
 **New commits:**
 - `5bfa589` Add ecflow scripts and triggers for forecast manager job
 
+
+## 2026-05-21 20:26 UTC (auto)
+**Branch:** `feature/gfsv17-forecast_manager`
+**New commits:**
+- `7fc84fe` Refactor JGLOBAL_FORECAST_MANAGER and forecast_postdet.sh scripts to improve clarity and remove redundant code
+- `a962bcc` Remove redundant warm start handling code and fix source file naming in MOM6 post-processing
+- `59a117c` Enhance MOM6 post-processing by adding logging for source and destination files
+- `bdf5c55` remove decode coding
+- `0391081` update dev/jobs/JGLOBAL_FORECAST_MANAGER
+- `50ad388` Enhance forecast manager configuration and stability checks; update resource definitions and logging for oceanice products
+- `4465271` Update ush/forecast_manager.sh
+- `713bb14` Update ush/forecast_manager.sh
+- `19272b2` Update ush/forecast_manager.sh
+- `50dbef2` Enhance forecast manager to handle model-done fallback for last segment entry; write synthetic COM log if necessary
+- `d939b2c` Enhance forecast manager to implement model-done fallback for ocean component; adjust log handling logic
+- `1a25032` Refactor conditional checks for ocean component in forecast manager
+- `9cc7b3c` Remove segment completion sentinel cleanup from forecast manager script
+- `5f7c0de` Update forecast manager and related scripts to use table-ready sentinel for segment management
+- `bf4b9bd` Update forecast manager to check for absence of FCST_TABLE_READY_SENTINEL before waiting
+- `338e9f8` Refactor forecast manager for improved task handling and logging
+- `43c4055` Enhance synthetic sentinel logging in forecast manager for better clarity
+- `135c717` Refactor CICE post-processing to streamline file registration and logging
+- `bb0580f` Enhance CICE output handling by adding initial condition snapshot management and directory creation
+- `84da728` Update CICE post-processing to manage initial condition snapshots for manager runs
+- `0f7aefa` Clarify comments in CICE output function regarding initial condition snapshots for manager runs
+- `b468c54` Refactor CICE post-processing to improve initial condition snapshot handling and clarify comments
+- `e6d9cc1` Fix indentation in CICE post-processing output handling for better readability
+- `fa77a75` Add informative error messages to all err_exit calls (#4895)
+- `2365ebf` Removed soca gridgen from the v17 workflow (#4784)
+- `b157f61` Update exglobal_prep_sfc (#4879)
+- `5c9695a` Introduce master scron job (#4891)
+- `f15a038` Parallel reproducibility comparison utility (#4906)
+- `d465c19` (dev/gfs.v17) Fix multiple copying issue in regrid code. (#4898)
+- `0122e8b` Package level change for COM paths issue (#4911)
+- `a70dbbb` Enhance forecast manager script to handle ocean and ice model log visibility issues and defer processing for missing data files
+- `8f768c4` Update configuration scripts for improved resource management and clarity
+- `1c525ae` update gfs_tasks.py
+- `76aa3e3` HOTFIX Create RESTART directory to prevent MOM6 from doing it
+- `36819cf` Correct TODO
+- `2e81888` Enhance forecast manager to handle missing sentinel logs for ocean and ice models, including size checks for copied outputs.
+- `2aa6b4b` Refactor forecast manager script for improved clarity and maintainability
+- `e5db0ec` Improve synthetic sentinel logging by using base names for clarity
+- `b1b9e09` Update ecf/scripts/gfs/forecast/jgfs_fcst_manager.ecf
+- `28fe0b8` Refine size reference logic for missing sentinel logs to ensure accurate comparisons based on normalized file names.
+- `ca25bc1` HOTFIX Create RESTART directory to prevent FMS from doing it (#4932)
+- `40c5081` (dev/gfs.v17)Updates to wave products  (#4915)
+- `f926942` (dev/gfs.v17) Add missing dependency on ensemble regrid in ensemble forecast (#4917)
+- `44430d6` [dev/gfs.v17] Have executable names resemble sorc directory names (#4923)
+- `e9b9e7e` [dev/gfs.v17] Improve eupd/global cycle log output (#4925)
+- `0b49568` Remove unnecessary cleanup of MOM6/CICE sentinel log files and add comment for opening netCDF file in OceanIceProducts task
+- `7a395ae` Enhance forecast manager to handle data-file triggers and improve sentinel logging for CICE outputs
+- `9bdde0d` Add ATM barrier script and update forecast post-processing for per-product ranks
+- `6ad71ce` Refactor ATM command additions in forecast manager script for improved readability
+
