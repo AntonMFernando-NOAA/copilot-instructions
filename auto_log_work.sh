@@ -17,6 +17,7 @@ TIMESTAMP="$(date -u '+%Y-%m-%d %H:%M UTC')"
 # List of repos to monitor — add more as needed
 REPOS=(
     "/scratch3/NCEPDEV/global/Anton.Fernando/global-workflow"
+    "/scratch3/NCEPDEV/global/Anton.Fernando/global-workflow_gfsv17"
 )
 
 append_commits() {
