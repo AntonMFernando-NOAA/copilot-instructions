@@ -165,3 +165,38 @@ if [[ "${component}" == "ocn" &&
 **Files:** `ush/forecast_manager.sh`
 
 **Notes:** Always use `&&` at end-of-line for multi-line `[[ ]]`. Use `grep "\\ &&\|\\\\$" <file>` to catch backslash-continuation violations quickly.
+
+---
+
+## 2026-05-21 — shellcheck SC2129: consecutive redirects to the same file
+
+**Error:**
+```
+[shellcheck] reported by reviewdog 🐶
+Consider using { cmd1; cmd2; } >> file instead of individual redirects. SC2129
+scripts/exglobal_forecast_manager.sh
+```
+
+**Root cause:** Multiple consecutive `echo ... >> "${file}"` lines targeting the same file trigger SC2129. The global-workflow CI runs shellcheck via reviewdog and auto-flags this as a style violation.
+
+**Fix:** Group consecutive redirects with `{ ... } >> "${file}"`:
+
+**Wrong:**
+```bash
+echo "${USHgfs}/forecast_manager.sh atm_atmf ${ATM_ATMF_TABLE}" >> "${FCST_MANAGER_CMDFILE}"
+echo "${USHgfs}/forecast_manager.sh atm_sfcf ${ATM_SFCF_TABLE}" >> "${FCST_MANAGER_CMDFILE}"
+echo "${USHgfs}/forecast_manager.sh atm_grib ${ATM_GRIB_TABLE}" >> "${FCST_MANAGER_CMDFILE}"
+```
+
+**Correct:**
+```bash
+{
+    echo "${USHgfs}/forecast_manager.sh atm_atmf ${ATM_ATMF_TABLE}"
+    echo "${USHgfs}/forecast_manager.sh atm_sfcf ${ATM_SFCF_TABLE}"
+    echo "${USHgfs}/forecast_manager.sh atm_grib ${ATM_GRIB_TABLE}"
+} >> "${FCST_MANAGER_CMDFILE}"
+```
+
+**Files:** `scripts/exglobal_forecast_manager.sh`
+
+**Notes:** A single `echo` inside a loop body is not flagged — only consecutive redirects at the same indentation level trigger SC2129. Always group 2+ consecutive redirects to the same file.
