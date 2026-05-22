@@ -203,3 +203,10 @@ changes unless explicitly requested.
 **New commits:**
 - `c4250de` Enhance ATM barrier script to remove intermediate sentinels after final log is written; update CICE post-processing to use first forecast-hour ice output as trigger
 
+
+## 2026-05-22 17:00 UTC (auto)
+**Branch:** `feature/gfsv17-forecast_manager`
+**New commits:**
+- `fb525af` Refactor ATM configuration and scripts to support multiple instance groups; update barrier handling and product table management for improved parallel processing
+- `6982b4a` Update ush/forecast_postdet.sh
+
