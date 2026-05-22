@@ -197,3 +197,9 @@ changes unless explicitly requested.
 **New commits:**
 - `7a107c9` Refactor configuration scripts for improved clarity and maintainability
 
+
+## 2026-05-22 15:00 UTC (auto)
+**Branch:** `feature/gfsv17-forecast_manager`
+**New commits:**
+- `c4250de` Enhance ATM barrier script to remove intermediate sentinels after final log is written; update CICE post-processing to use first forecast-hour ice output as trigger
+
