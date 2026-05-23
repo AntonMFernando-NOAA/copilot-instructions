@@ -216,3 +216,9 @@ changes unless explicitly requested.
 **New commits:**
 - `9d17c7d` Enhance ATM barrier script to implement a post-done timeout feature for improved handling of pending rows after model completion
 
+
+## 2026-05-23 03:00 UTC (auto)
+**Branch:** `feature/gfsv17-forecast_manager`
+**New commits:**
+- `d060892` Enhance ATM barrier script to track dependency file progress and improve timeout logic for pending rows
+
