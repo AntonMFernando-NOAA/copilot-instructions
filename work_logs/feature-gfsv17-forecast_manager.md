@@ -210,3 +210,9 @@ changes unless explicitly requested.
 - `fb525af` Refactor ATM configuration and scripts to support multiple instance groups; update barrier handling and product table management for improved parallel processing
 - `6982b4a` Update ush/forecast_postdet.sh
 
+
+## 2026-05-23 00:00 UTC (auto)
+**Branch:** `feature/gfsv17-forecast_manager`
+**New commits:**
+- `9d17c7d` Enhance ATM barrier script to implement a post-done timeout feature for improved handling of pending rows after model completion
+
