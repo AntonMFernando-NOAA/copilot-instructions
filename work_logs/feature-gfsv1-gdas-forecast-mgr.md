@@ -55,3 +55,9 @@
 - `99769cc` fix: gdas oceanice products config and ICE COM filename consistency
 - `e685112` fix: correct ocean subset variable names in oceanice_products_gdas.yaml
 
+
+## 2026-05-26 21:00 UTC (auto)
+**Branch:** `feature/gfsv1-gdas-forecast-mgr`
+**New commits:**
+- `cb48e4f` fix: correct enkfgdas efcs_manager datadep and add ocean/ice prod tasks
+
