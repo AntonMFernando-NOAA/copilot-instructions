@@ -40,3 +40,9 @@
 - `45210d4` fix(forecast_manager): replace cpfs with cp and add retry logic for file copy operations
 - `3b77a31` fix(forecast_atm_barrier): reduce post-done timeout from 1800 to 120 seconds
 
+
+## 2026-05-26 19:00 UTC (auto)
+**Branch:** `feature/gfsv1-gdas-forecast-mgr`
+**New commits:**
+- `5082a52` fix(CICE_postdet): create empty ice product table for non-manager runs
+
