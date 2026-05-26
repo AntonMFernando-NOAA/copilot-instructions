@@ -46,3 +46,12 @@
 **New commits:**
 - `5082a52` fix(CICE_postdet): create empty ice product table for non-manager runs
 
+
+## 2026-05-26 20:00 UTC (auto)
+**Branch:** `feature/gfsv1-gdas-forecast-mgr`
+**New commits:**
+- `c1debe3` fix: gdas ocean/ice COM log sentinels for Rocoto datadep
+- `8c3bd29` fix: gdas ocean/ice products use wrong YAML and wrong ICE filename
+- `99769cc` fix: gdas oceanice products config and ICE COM filename consistency
+- `e685112` fix: correct ocean subset variable names in oceanice_products_gdas.yaml
+
