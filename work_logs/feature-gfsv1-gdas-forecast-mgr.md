@@ -76,3 +76,10 @@
 - `b30836e` fix(forecast_postdet): update handling of fcst_table_ready_seg to support independent forecast manager restarts
 - `6c21b9f` fix(forecast_postdet): update table-ready sentinel handling to support independent forecast manager restarts
 
+
+## 2026-05-27 21:00 UTC (auto)
+**Branch:** `feature/gfsv1-gdas-forecast-mgr`
+**New commits:**
+- `d5380b9` fix(forecast_postdet): remove redundant file copy commands and add error handling for unsupported runs
+- `fa55125` fix(forecast_postdet): update oceanice_products configuration and enhance MOM6 history file handling for non-manager runs
+
