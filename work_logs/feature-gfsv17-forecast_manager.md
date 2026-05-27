@@ -222,3 +222,12 @@ changes unless explicitly requested.
 **New commits:**
 - `d060892` Enhance ATM barrier script to track dependency file progress and improve timeout logic for pending rows
 
+
+## 2026-05-27 15:00 UTC (auto)
+**Branch:** `feature/gfsv17-forecast_manager`
+**New commits:**
+- `45210d4` fix(forecast_manager): replace cpfs with cp and add retry logic for file copy operations
+- `3b77a31` fix(forecast_atm_barrier): reduce post-done timeout from 1800 to 120 seconds
+- `721902a` fix(forecast_predet): adjust FV3 output frequency calculation to include FHOUT
+- `d96c4f1` Revert "fix(forecast_manager): replace cpfs with cp and add retry logic for file copy operations"
+
