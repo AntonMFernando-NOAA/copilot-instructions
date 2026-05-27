@@ -67,3 +67,12 @@
 **New commits:**
 - `bc3038e` fix: enkfgdas ocean/ice prod should not run on first cycle
 
+
+## 2026-05-27 19:00 UTC (auto)
+**Branch:** `feature/gfsv1-gdas-forecast-mgr`
+**New commits:**
+- `721902a` fix(forecast_predet): adjust FV3 output frequency calculation to include FHOUT
+- `d96c4f1` Revert "fix(forecast_manager): replace cpfs with cp and add retry logic for file copy operations"
+- `b30836e` fix(forecast_postdet): update handling of fcst_table_ready_seg to support independent forecast manager restarts
+- `6c21b9f` fix(forecast_postdet): update table-ready sentinel handling to support independent forecast manager restarts
+
