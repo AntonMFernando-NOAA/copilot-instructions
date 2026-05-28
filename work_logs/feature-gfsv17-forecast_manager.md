@@ -245,3 +245,9 @@ changes unless explicitly requested.
 - `8bda283` Update polling interval and variable names for clarity in forecast scripts
 - `2df9a17` Update fcst_manager command to use HOMEglobal path
 
+
+## 2026-05-28 16:00 UTC (auto)
+**Branch:** `feature/gfsv17-forecast_manager`
+**New commits:**
+- `cdcd65e` Update fcst_manager script to use HOMEglobal path
+
