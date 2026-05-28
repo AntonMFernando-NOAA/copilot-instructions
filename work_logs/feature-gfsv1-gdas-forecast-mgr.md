@@ -103,3 +103,11 @@
 **New commits:**
 - `35bd763` Refactor MOM6 and CICE post-processing to streamline output handling and enable forecast manager for additional run types
 
+
+## 2026-05-28 19:00 UTC (auto)
+**Branch:** `feature/gfsv1-gdas-forecast-mgr`
+**New commits:**
+- `3f2fa11` Remove MOM6 history file handling for non-manager runs from forecast_postdet.sh
+- `ba667e6` Refactor forecast_postdet.sh to enable forecast manager for gfs and gdas runs, removing support for gefs, sfs, and gcafs.
+- `354013f` Refactor CICE post-processing in forecast_postdet.sh to remove unused forecast manager logic and streamline output handling.
+
