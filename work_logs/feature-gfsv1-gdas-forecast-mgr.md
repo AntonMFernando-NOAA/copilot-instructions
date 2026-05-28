@@ -111,3 +111,10 @@
 - `ba667e6` Refactor forecast_postdet.sh to enable forecast manager for gfs and gdas runs, removing support for gefs, sfs, and gcafs.
 - `354013f` Refactor CICE post-processing in forecast_postdet.sh to remove unused forecast manager logic and streamline output handling.
 
+
+## 2026-05-28 21:00 UTC (auto)
+**Branch:** `feature/gfsv1-gdas-forecast-mgr`
+**New commits:**
+- `a9e873f` Remove CICE history file handling for non-manager runs
+- `08e236f` Update cycledef assignment in gfs_tasks.py
+
