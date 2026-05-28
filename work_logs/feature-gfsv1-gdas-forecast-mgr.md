@@ -97,3 +97,9 @@
 - `cdcd65e` Update fcst_manager script to use HOMEglobal path
 - `11f6467` Update fcst_manager command to use HOMEglobal path
 
+
+## 2026-05-28 18:00 UTC (auto)
+**Branch:** `feature/gfsv1-gdas-forecast-mgr`
+**New commits:**
+- `35bd763` Refactor MOM6 and CICE post-processing to streamline output handling and enable forecast manager for additional run types
+
