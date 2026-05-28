@@ -83,3 +83,17 @@
 - `d5380b9` fix(forecast_postdet): remove redundant file copy commands and add error handling for unsupported runs
 - `fa55125` fix(forecast_postdet): update oceanice_products configuration and enhance MOM6 history file handling for non-manager runs
 
+
+## 2026-05-28 17:00 UTC (auto)
+**Branch:** `feature/gfsv1-gdas-forecast-mgr`
+**New commits:**
+- `ed27e61` (dev/gfs.v17) Update DA resources and default configuration for realtime parallel (#4944)
+- `c61b09b` [dev/gfs.v17] Update gitignore for additional sorc directories  (#4941)
+- `40e5f7b` (dev/gfs.v17) Reduce debug output from logit decorator (#4933)
+- `e4437f0` (dev/gfs.v17) Rename HOMEgfs to HOMEglobal; inherit HOMEgfs and set HOMEglobal in ecf scripts (#4839)
+- `34283eb` Addres Dave's suggestions
+- `8bda283` Update polling interval and variable names for clarity in forecast scripts
+- `2df9a17` Update fcst_manager command to use HOMEglobal path
+- `cdcd65e` Update fcst_manager script to use HOMEglobal path
+- `11f6467` Update fcst_manager command to use HOMEglobal path
+
