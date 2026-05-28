@@ -231,3 +231,17 @@ changes unless explicitly requested.
 - `721902a` fix(forecast_predet): adjust FV3 output frequency calculation to include FHOUT
 - `d96c4f1` Revert "fix(forecast_manager): replace cpfs with cp and add retry logic for file copy operations"
 
+
+## 2026-05-28 15:00 UTC (auto)
+**Branch:** `feature/gfsv17-forecast_manager`
+**New commits:**
+- `b30836e` fix(forecast_postdet): update handling of fcst_table_ready_seg to support independent forecast manager restarts
+- `6c21b9f` fix(forecast_postdet): update table-ready sentinel handling to support independent forecast manager restarts
+- `ed27e61` (dev/gfs.v17) Update DA resources and default configuration for realtime parallel (#4944)
+- `c61b09b` [dev/gfs.v17] Update gitignore for additional sorc directories  (#4941)
+- `40e5f7b` (dev/gfs.v17) Reduce debug output from logit decorator (#4933)
+- `e4437f0` (dev/gfs.v17) Rename HOMEgfs to HOMEglobal; inherit HOMEgfs and set HOMEglobal in ecf scripts (#4839)
+- `34283eb` Addres Dave's suggestions
+- `8bda283` Update polling interval and variable names for clarity in forecast scripts
+- `2df9a17` Update fcst_manager command to use HOMEglobal path
+
