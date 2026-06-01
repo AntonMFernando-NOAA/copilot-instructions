@@ -130,3 +130,10 @@
 **New commits:**
 - `99527d8` Update MOM6_postdet function to include additional run types and clarify log handling
 
+
+## 2026-06-01 18:00 UTC (auto)
+**Branch:** `feature/gfsv1-gdas-forecast-mgr`
+**New commits:**
+- `ed86c5b` Fix path to wait_for_file.sh in exglobal_forecast_manager.sh
+- `8c3d836` Update script paths to use correct global variables in JGLOBAL_FORECAST_MANAGER and exglobal_forecast_manager.sh
+
