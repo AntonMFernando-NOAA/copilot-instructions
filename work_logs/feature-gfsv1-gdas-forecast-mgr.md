@@ -124,3 +124,9 @@
 **New commits:**
 - `fb68cb3` Update script paths to use global variables for consistency
 
+
+## 2026-06-01 17:00 UTC (auto)
+**Branch:** `feature/gfsv1-gdas-forecast-mgr`
+**New commits:**
+- `99527d8` Update MOM6_postdet function to include additional run types and clarify log handling
+
