@@ -137,3 +137,10 @@
 - `ed86c5b` Fix path to wait_for_file.sh in exglobal_forecast_manager.sh
 - `8c3d836` Update script paths to use correct global variables in JGLOBAL_FORECAST_MANAGER and exglobal_forecast_manager.sh
 
+
+## 2026-06-01 19:00 UTC (auto)
+**Branch:** `feature/gfsv1-gdas-forecast-mgr`
+**New commits:**
+- `cbcbf72` Fix path to forecast_manager.sh in exglobal_forecast_manager.sh
+- `8270dc0` Remove redundant ocean and ice production tasks for 'gdas' run in GFSCycledAppConfig
+
