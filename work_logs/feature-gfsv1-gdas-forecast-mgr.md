@@ -118,3 +118,9 @@
 - `a9e873f` Remove CICE history file handling for non-manager runs
 - `08e236f` Update cycledef assignment in gfs_tasks.py
 
+
+## 2026-06-01 05:00 UTC (auto)
+**Branch:** `feature/gfsv1-gdas-forecast-mgr`
+**New commits:**
+- `fb68cb3` Update script paths to use global variables for consistency
+
