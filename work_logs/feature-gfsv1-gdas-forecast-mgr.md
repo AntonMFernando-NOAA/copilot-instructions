@@ -144,3 +144,9 @@
 - `cbcbf72` Fix path to forecast_manager.sh in exglobal_forecast_manager.sh
 - `8270dc0` Remove redundant ocean and ice production tasks for 'gdas' run in GFSCycledAppConfig
 
+
+## 2026-06-01 21:00 UTC (auto)
+**Branch:** `feature/gfsv1-gdas-forecast-mgr`
+**New commits:**
+- `de57b4a` Refactor GFSCycledAppConfig to streamline run configuration logic
+
