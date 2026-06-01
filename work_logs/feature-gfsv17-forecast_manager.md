@@ -251,3 +251,9 @@ changes unless explicitly requested.
 **New commits:**
 - `cdcd65e` Update fcst_manager script to use HOMEglobal path
 
+
+## 2026-06-01 14:00 UTC (auto)
+**Branch:** `feature/gfsv17-forecast_manager`
+**New commits:**
+- `53a54d4` Refactor variable names in split_table_by_sentinel function for clarity
+
