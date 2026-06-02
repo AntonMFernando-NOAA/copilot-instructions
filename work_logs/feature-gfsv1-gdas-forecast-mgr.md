@@ -150,3 +150,11 @@
 **New commits:**
 - `de57b4a` Refactor GFSCycledAppConfig to streamline run configuration logic
 
+
+## 2026-06-02 01:00 UTC (auto)
+**Branch:** `feature/gfsv1-gdas-forecast-mgr`
+**New commits:**
+- `66155ae` Restrict OCN and ICE product table checks to 'gfs' run in exglobal_forecast_manager.sh
+- `4128cfb` Restrict ocean and ice product managers to run only for the full GFS cycle in config.resources
+- `f3ee46e` Restrict ocean and ice history file declarations to 'gfs' run in JGLOBAL_FORECAST_MANAGER and update dependencies in GFSTasks for proper file management
+
