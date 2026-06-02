@@ -158,3 +158,10 @@
 - `4128cfb` Restrict ocean and ice product managers to run only for the full GFS cycle in config.resources
 - `f3ee46e` Restrict ocean and ice history file declarations to 'gfs' run in JGLOBAL_FORECAST_MANAGER and update dependencies in GFSTasks for proper file management
 
+
+## 2026-06-02 02:00 UTC (auto)
+**Branch:** `feature/gfsv1-gdas-forecast-mgr`
+**New commits:**
+- `b612488` Update forecast manager task allocation based on inline post-processing settings
+- `aac94bb` Update JGLOBAL_FORECAST_MANAGER to conditionally source job header for efcs configuration
+
