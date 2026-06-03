@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# use_branch.sh — Activate per-branch Copilot work log for the current workspace.
+# use_branch.sh — Activate per-branch Kiro work-log steering for the current workspace.
 #
 # Usage:
 #   cd /path/to/repo
@@ -8,36 +8,36 @@
 # What it does:
 #   1. Detects the current git branch.
 #   2. Creates ~/copilot-instructions/work_logs/<branch-slug>.md if it doesn't exist.
-#   3. Writes .vscode/settings.json in the repo to load that work log automatically.
-#      (.vscode/settings.json should be gitignored in the repo.)
+#   3. Drops a Kiro workspace steering file at <repo>/.kiro/steering/work-log.md
+#      that points at that work log so Kiro auto-loads it every session.
+#      (.kiro/steering/work-log.md is excluded locally via .git/info/exclude.)
 #
 # Run this once each time you start working on a new or switched-to branch.
+# Called automatically by the post-checkout git hook.
 
 set -euo pipefail
 
 WORK_LOGS_DIR="${HOME}/copilot-instructions/work_logs"
-INSTRUCTIONS="${HOME}/copilot-instructions/copilot-instructions.md"
-ERROR_LOG="${HOME}/copilot-instructions/error_log.md"
 
 # Detect repo root and branch
-REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null)" || {
-    echo "ERROR: Not inside a git repository." >&2
-    exit 1
+REPO_ROOT="$(git rev-parse --show-toplevel 2> /dev/null)" || {
+  echo "ERROR: Not inside a git repository." >&2
+  exit 1
 }
 BRANCH="$(git -C "${REPO_ROOT}" rev-parse --abbrev-ref HEAD)"
-SLUG="${BRANCH//\//-}"   # replace / with - for filename safety
+SLUG="${BRANCH//\//-}" # replace / with - for filename safety
 WORK_LOG="${WORK_LOGS_DIR}/${SLUG}.md"
 
-echo "Branch : ${BRANCH}"
+echo "Branch  : ${BRANCH}"
 echo "Work log: ${WORK_LOG}"
 
 # Create work log for this branch if it doesn't exist
 if [[ ! -f "${WORK_LOG}" ]]; then
-    mkdir -p "${WORK_LOGS_DIR}"
-    cat > "${WORK_LOG}" <<TEMPLATE
+  mkdir -p "${WORK_LOGS_DIR}"
+  cat > "${WORK_LOG}" << TEMPLATE
 # Work Log — ${BRANCH}
-# Repo: $(git -C "${REPO_ROOT}" remote get-url origin 2>/dev/null || echo "unknown")
-# Loaded automatically via .vscode/settings.json when this workspace is open.
+# Repo: $(git -C "${REPO_ROOT}" remote get-url origin 2> /dev/null || echo "unknown")
+# Loaded automatically by Kiro via .kiro/steering/work-log.md when this workspace is open.
 #
 # Entry format:
 #   ## YYYY-MM-DD
@@ -49,30 +49,40 @@ if [[ ! -f "${WORK_LOG}" ]]; then
 
 ---
 TEMPLATE
-    echo "Created new work log: ${WORK_LOG}"
+  echo "Created new work log: ${WORK_LOG}"
 fi
 
-# Write .vscode/settings.json in the repo
-VSCODE_DIR="${REPO_ROOT}/.vscode"
-VSCODE_SETTINGS="${VSCODE_DIR}/settings.json"
-mkdir -p "${VSCODE_DIR}"
+# Write Kiro workspace steering file pointing at this branch's work log.
+# Kiro merges all .md files under .kiro/steering/ into every session by default.
+KIRO_STEERING_DIR="${REPO_ROOT}/.kiro/steering"
+KIRO_WORK_LOG_STEERING="${KIRO_STEERING_DIR}/work-log.md"
+mkdir -p "${KIRO_STEERING_DIR}"
 
-cat > "${VSCODE_SETTINGS}" <<JSON
-{
-    "github.copilot.chat.codeGeneration.instructions": [
-        { "file": "${WORK_LOG}" }
-    ]
-}
-JSON
+cat > "${KIRO_WORK_LOG_STEERING}" << STEERING
+---
+inclusion: always
+---
+# Active Branch Work Log
 
-echo "Updated: ${VSCODE_SETTINGS}"
+Repo branch: \`${BRANCH}\`
+Source: ${WORK_LOG}
 
-# Exclude .vscode/settings.json locally without touching the repo's .gitignore
-# .git/info/exclude is the per-clone local equivalent of .gitignore — never committed
+The full per-branch work log is included below (referenced via Kiro file include
+so the latest cron-appended commits are always picked up).
+
+#[[file:${WORK_LOG}]]
+STEERING
+
+echo "Wrote: ${KIRO_WORK_LOG_STEERING}"
+
+# Exclude the workspace steering file locally without touching the repo's .gitignore.
+# .git/info/exclude is the per-clone local equivalent of .gitignore — never committed.
 EXCLUDE="${REPO_ROOT}/.git/info/exclude"
-if ! grep -qF '.vscode/settings.json' "${EXCLUDE}" 2>/dev/null; then
-    echo '.vscode/settings.json' >> "${EXCLUDE}"
-    echo "Added .vscode/settings.json to .git/info/exclude (local only)"
-fi
+for pattern in '.kiro/steering/work-log.md' '.kiro/'; do
+  if ! grep -qF "${pattern}" "${EXCLUDE}" 2> /dev/null; then
+    echo "${pattern}" >> "${EXCLUDE}"
+    echo "Added ${pattern} to .git/info/exclude (local only)"
+  fi
+done
 
-echo "Done. Reload VS Code window to apply (Ctrl+Shift+P → 'Developer: Reload Window')."
+echo "Done. Kiro picks up steering changes on the next prompt — no reload needed."

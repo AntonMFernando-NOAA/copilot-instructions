@@ -1,6 +1,9 @@
-# GitHub Copilot — Personal Persistent Instructions
+# Personal Persistent AI Instructions
 # Anton Fernando | NOAA/NCEP Global Workflow Developer
-# Loaded automatically into every Copilot Chat session via VS Code user settings.
+#
+# Loaded automatically into every Kiro session via ~/.kiro/steering/persistent-instructions.md
+# (and historically via VS Code Copilot user settings — kept compatible).
+# Filename retained as `copilot-instructions.md` for git-history continuity.
 
 ## Identity and Domain Context
 
@@ -67,7 +70,7 @@ Working directory base: /scratch3/NCEPDEV/global/Anton.Fernando/
 - Utilities: /home/Anton.Fernando/utils/
 - Global Workflow source: /scratch3/NCEPDEV/global/Anton.Fernando/global-workflow/
 - Cron logs: /home/Anton.Fernando/logs/
-- Copilot instructions repo: /home/Anton.Fernando/copilot-instructions/ (https://github.com/AntonMFernando-NOAA/copilot-instructions)
+- Persistent-instructions repo: /home/Anton.Fernando/copilot-instructions/ (https://github.com/AntonMFernando-NOAA/copilot-instructions)
 - Work log (full history): /home/Anton.Fernando/copilot-instructions/work_log.md
 - Error log (debug history): /home/Anton.Fernando/copilot-instructions/error_log.md
 
@@ -94,13 +97,27 @@ These local clones are tracked for context and cross-referencing:
 ## Debug / Error History
 
 An error log is maintained at /home/Anton.Fernando/copilot-instructions/error_log.md.
-It is updated after every debug session. Reference it in prompts when debugging:
-  `#file:/home/Anton.Fernando/copilot-instructions/error_log.md`
+It is updated after every debug session. In Kiro it is auto-loaded via
+~/.kiro/steering/error-log.md, so just reference recurring patterns by name.
 Known recurring patterns are recorded there — check it before suggesting a fix.
 
-## Instructions for Copilot Use
+## Editor Integration
 
-- Always use mcp-tools for context when available.
+Kiro (current):
+- User steering: ~/.kiro/steering/persistent-instructions.md and error-log.md include this file
+  and error_log.md respectively. Loaded in every workspace, every session.
+- Workspace steering: <repo>/.kiro/steering/work-log.md includes the per-branch work log.
+  Written by ~/copilot-instructions/use_branch.sh and refreshed by the post-checkout hook.
+
+VS Code Copilot (legacy, still works on machines that need it):
+- User: ~/.vscode-server/data/User/settings.json with two `github.copilot.chat.codeGeneration.instructions`
+  entries pointing at this file and error_log.md.
+- Workspace: <repo>/.vscode/settings.json (no longer auto-written; switch the post-checkout
+  hook back to the legacy version if needed).
+
+## Instructions for Use
+
+- Always use mcp tools / sub-agents for context when available.
 - Always ask before pushing to any remote.
 - When a debug session resolves an error, append an entry to error_log.md.
 - When finishing a task, append an entry to work_log.md and rotate Recent Work (keep ≤5).
