@@ -165,3 +165,14 @@
 - `b612488` Update forecast manager task allocation based on inline post-processing settings
 - `aac94bb` Update JGLOBAL_FORECAST_MANAGER to conditionally source job header for efcs configuration
 
+
+## 2026-06-03 17:00 UTC (auto)
+**Branch:** `feature/gfsv1-gdas-forecast-mgr`
+**New commits:**
+- `53a54d4` Refactor variable names in split_table_by_sentinel function for clarity
+- `af9af43` Update script paths to use USHglobal for consistency
+- `d256c1f` [dev/gfs.v17] Write UFSWM logs to output directories and add UPP foundation T land mask (#4946)
+- `92ab644` [dev/gfs.v17] Update package for release versions of expdir/comroot (#4948)
+- `314e1a2` (dev/gfs.v17) Introduce the auxiliary verification and archiving workflow (#4950)
+- `82b048c` update CICE log sentinels
+
