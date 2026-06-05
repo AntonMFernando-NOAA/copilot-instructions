@@ -257,3 +257,13 @@ changes unless explicitly requested.
 **New commits:**
 - `53a54d4` Refactor variable names in split_table_by_sentinel function for clarity
 
+
+## 2026-06-05 20:00 UTC (auto)
+**Branch:** `feature/gfsv17-forecast_manager`
+**New commits:**
+- `af9af43` Update script paths to use USHglobal for consistency
+- `d256c1f` [dev/gfs.v17] Write UFSWM logs to output directories and add UPP foundation T land mask (#4946)
+- `92ab644` [dev/gfs.v17] Update package for release versions of expdir/comroot (#4948)
+- `314e1a2` (dev/gfs.v17) Introduce the auxiliary verification and archiving workflow (#4950)
+- `292a722` chore(ecf): Add event ID to release_gfs_fcst_manager events
+
