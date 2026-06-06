@@ -57,3 +57,9 @@
 **New commits:**
 - `d17125e` ecflow/c96: add bootstrap.sh and jobs->dev/jobs symlink
 
+
+## 2026-06-06 01:00 UTC (auto)
+**Branch:** `feature/gfsv17-ecflow`
+**New commits:**
+- `73cbd64` ecflow/c96: replace empty strings with single space in bootstrap.sh
+
