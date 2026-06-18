@@ -215,3 +215,9 @@
 - `afdae27` Set MOM6_HISTFREQ_N to a fixed value of 1 in parsing_ufs_configure.sh
 - `dec1c0e` Update MOM6 output file naming to reflect hourly sentinel writes with MOM6_HISTFREQ_N=1
 
+
+## 2026-06-18 21:00 UTC (auto)
+**Branch:** `feature/gfsv1-gdas-forecast-mgr`
+**New commits:**
+- `60755b1` Refactor MOM6 output handling to set MOM6_HISTFREQ_N based on run type, ensuring correct sentinel suffixes for hourly and 6-hourly outputs.
+
