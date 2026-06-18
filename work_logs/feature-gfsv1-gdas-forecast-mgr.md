@@ -182,3 +182,36 @@
 **New commits:**
 - `e03ffe1` KEEPDATA- revert this when merging
 
+
+## 2026-06-18 19:00 UTC (auto)
+**Branch:** `feature/gfsv1-gdas-forecast-mgr`
+**New commits:**
+- `9d4c6dd` [dev/gfs.v17] Forecast Manager: Real-Time Product Copy to COM with Adaptive, Component-Aware Segment Management (#4907)
+- `1bac467` [dev/gfsv17] ecflow updates  (#4975)
+- `62f4977` (dev/gfs.v17) Track changes in /jobs and /scripts via linking (#4977)
+- `06889b9` Add Forecast Manager Configs to `parm/config/gfs` (#4980)
+- `48ad928` feat(gfs): Add conditional inline post logic to Forecast Manager resource config
+- `806abd5` chore(forecast): Update Forecast Manager job script syntax
+- `445e428` style(forecast_manager): Fix spacing in conditional statements
+- `9a87056` HOTFIX: Update ocean log file location (#4989)
+- `b710663` feat(forecast_manager): Enable ice product manager for gdas and enkfgdas cycles
+- `73b2551` (dev/gfs.v17) Update the location of the master GRIB2 analysis files (#4958)
+- `5d9190c` HOTFIX: (dev/gfs.v17) Update marineanalysis rundirs to include $RUN  (#4990) (#4991)
+- `1f6a059` (dev/gfs.v17) Apply fixes needed for ecflow (#4997)
+- `0396cb7` (dev/gfsv.17) Add utility script to check for dead links (#4799) (#5001)
+- `c1b2607` feat(forecast): Add Forecast Manager tasks to GFS and GDAS cycles
+- `fea3a4a` feat(ecf): Add enkfgdas forecast manager file generation to setup script
+- `4e9c66b` [dev/gfs.v17] Add marine observation processing to dev/gfs.v17 workflow (#4922)
+- `cd5996d` (dev/gfs.v17) Archive MPMD logs in DATA instead of piping back to the parent log (#5020)
+- `ab5f38d` [dev/gfs.v17] Module files update 1: non-gdas components to use operational modules on wcoss2 (#5010)
+- `dc95693` preupdate to add mom6 sentinels (make sure to update the ufs model before approving)
+- `e42f47a` (dev/gfs.v17) Fix 2-meter water vapor moist bias in western US (#5011)
+- `82d8e2d` (dev/gfs.v17) Rename GDAS/ENKFGDAS ocean output prefix from `ocn_da` to `ocn` (#5016)
+- `74fd8af` Lay groundwork for custom GDAS compiler flags (#5026)
+- `05749df` (dev/gfs.v17) Remove NAM dependency from GFSv17 (#5032)
+- `7033fc6` [v17] bug fix and code owner update (#5033)
+- `2abd302` [dev/gfs.v17] Update bmat ecflow triggers and some other ecflow cleanup (#5035)
+- `2b43c9d` Update UFSWM hash -- MOM6 hourly output logs
+- `afdae27` Set MOM6_HISTFREQ_N to a fixed value of 1 in parsing_ufs_configure.sh
+- `dec1c0e` Update MOM6 output file naming to reflect hourly sentinel writes with MOM6_HISTFREQ_N=1
+
