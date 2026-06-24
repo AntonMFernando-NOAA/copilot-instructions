@@ -228,3 +228,21 @@
 - `219472f` Update COM_BASE path to conditionally include MEMDIR for ensemble runs
 - `eb3d0e1` Refactor Stage IC task to enhance clarity and maintainability of initial conditions path variables
 
+
+## 2026-06-24 18:00 UTC (auto)
+**Branch:** `feature/gfsv1-gdas-forecast-mgr`
+**New commits:**
+- `5eb449a` Update dev/jobs/JGLOBAL_FORECAST_MANAGER
+- `9b11c48` (dev/gfs.v17) Update v17 prep jobs in ecflow to operations-like configuration (#5013)
+- `e815721` [dev/gfsv17] update to not have stop string in wave output (#5045)
+- `ea7161c` [dev/gfs.v17] Add back bmat_init forecast dependencies (#5046)
+- `b0aae68` (dev/gfs.v17) Replace or Remove CDATE variable with PDY and cyc throughout codebase (#5039)
+- `f977637` [dev/gfs.v17] Add in Ed Givelberg's marine obs report for NCO SDM (#5029)
+- `1e3c283` (dev/gfs.v17) Add %manual documentation blocks to 77 ecFlow scripts (#5027)
+- `3cbf91e` (dev/v17) Release Notes (#5034)
+- `9b898ea` [dev/gfs.v17] Hotfix for analysis ecf triggers (#5057)
+- `03c41de` Update submodules to match upstream dev/gfs.v17: gfs_utils.fd, ufs_model.fd
+- `dd2a39a` Fire release_<RUN>_fcst_manager event for both gfs and gdas
+- `5e13f83` Update dev/scripts/exglobal_forecast.sh
+- `4ca2ad9` Add default case to RUN switch (shellcheck SC2249)
+
