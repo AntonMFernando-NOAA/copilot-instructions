@@ -34,3 +34,12 @@
 - `ac0ee5b` Remove nexus.fd submodule from index - not part of config-com feature
 - `8e7096a` Remove config.com sourcing - replaced by com_paths.py
 
+
+## 2026-06-24 20:00 UTC (auto)
+**Branch:** `feature/gfsv17-config-com`
+**New commits:**
+- `b2e515f` Add session summary for GDAS forecast manager fixes and configuration updates
+- `e241ab2` update gdas app
+- `7677d07` Remove nexus.fd submodule as it is not part of the config-com feature
+- `6e479cf` GDAS remove dangling submodule
+
