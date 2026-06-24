@@ -43,3 +43,9 @@
 - `7677d07` Remove nexus.fd submodule as it is not part of the config-com feature
 - `6e479cf` GDAS remove dangling submodule
 
+
+## 2026-06-24 21:00 UTC (auto)
+**Branch:** `feature/gfsv17-config-com`
+**New commits:**
+- `b3c2ec5` Bump sorc/gdas.cd to include orphaned gsibec submodule fix
+
