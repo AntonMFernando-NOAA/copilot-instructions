@@ -26,3 +26,11 @@
 - `1e3c283` (dev/gfs.v17) Add %manual documentation blocks to 77 ecFlow scripts (#5027)
 - `3cbf91e` (dev/v17) Release Notes (#5034)
 
+
+## 2026-06-24 19:00 UTC (auto)
+**Branch:** `feature/gfsv17-config-com`
+**New commits:**
+- `dd211fc` Refactor COM path templates: replace config.com with com_paths.py for better management and clarity
+- `ac0ee5b` Remove nexus.fd submodule from index - not part of config-com feature
+- `8e7096a` Remove config.com sourcing - replaced by com_paths.py
+
