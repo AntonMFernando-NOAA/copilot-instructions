@@ -99,3 +99,11 @@
 **New commits:**
 - `d8a71dd` Refactor scripts to import COM template definitions from com_paths and inject defaults into configurations
 
+
+## 2026-06-25 23:00 UTC (auto)
+**Branch:** `feature/gfsv17-config-com`
+**New commits:**
+- `f056558` Refactor marine analysis scripts to streamline COM template imports and configuration injectionco
+- `61297bc` Add missing sys import in exglobal_marine_analysis_letkf.py
+- `bb78931` Refactor scripts to inject COM_*_TMPL templates from com_paths with environment overrides
+
