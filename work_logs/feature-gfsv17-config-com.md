@@ -55,3 +55,12 @@
 **New commits:**
 - `d69bf5f` Fix PYTHONPATH order: set local wxflow after module load to ensure precedence on WCOSS2
 
+
+## 2026-06-25 04:00 UTC (auto)
+**Branch:** `feature/gfsv17-config-com`
+**New commits:**
+- `f599de3` Add all fixed COM_*_TMPL exports to config.base.j2 for job runtime
+- `c2c6276` Revert "Add all fixed COM_*_TMPL exports to config.base.j2 for job runtime"
+- `87c302a` Use com_paths.get_com_templates() as base in stage_ic._copy_com_templates()
+- `1b9b542` Use com_paths.get_com_templates() as base in archive_vars.add_config_vars()
+
