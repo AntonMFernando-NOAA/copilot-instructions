@@ -71,3 +71,11 @@
 - `5138b5d` Add COM template loading to MarineBMat class for Jinja2 rendering
 - `8ab1479` Add COM template loading to SnowAnalysis and SnowEnsAnalysis classes for Jinja2 rendering
 
+
+## 2026-06-25 18:00 UTC (auto)
+**Branch:** `feature/gfsv17-config-com`
+**New commits:**
+- `0ace378` Add COM template loading to MarineRecenter class for Jinja2 rendering
+- `cc106eb` Add COM_OCEAN_ANALYSIS_TMPL and COM_ICE_ANALYSIS_TMPL to needed templates in MarineRecenter class
+- `8d7d805` Update PYTHONPATH setup in gw_setup.sh to ensure proper precedence for wxflow
+
