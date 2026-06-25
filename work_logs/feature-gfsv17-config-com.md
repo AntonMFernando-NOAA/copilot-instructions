@@ -49,3 +49,9 @@
 **New commits:**
 - `b3c2ec5` Bump sorc/gdas.cd to include orphaned gsibec submodule fix
 
+
+## 2026-06-25 01:00 UTC (auto)
+**Branch:** `feature/gfsv17-config-com`
+**New commits:**
+- `d69bf5f` Fix PYTHONPATH order: set local wxflow after module load to ensure precedence on WCOSS2
+
