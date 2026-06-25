@@ -85,3 +85,11 @@
 **New commits:**
 - `1af8433` update gw_setup.sh
 
+
+## 2026-06-25 20:00 UTC (auto)
+**Branch:** `feature/gfsv17-config-com`
+**New commits:**
+- `a267daf` Add COM template loading to exglobal_archive_tars.py and exglobal_archive_vrfy.py for Jinja2 rendering
+- `cd6830c` Remove unused imports and clean up COM template handling in ArchiveVrfyVars class
+- `60da35e` Remove unused import and clean up comments in ArchiveVrfyVars class
+
