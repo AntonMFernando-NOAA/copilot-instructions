@@ -93,3 +93,9 @@
 - `cd6830c` Remove unused imports and clean up COM template handling in ArchiveVrfyVars class
 - `60da35e` Remove unused import and clean up comments in ArchiveVrfyVars class
 
+
+## 2026-06-25 21:00 UTC (auto)
+**Branch:** `feature/gfsv17-config-com`
+**New commits:**
+- `d8a71dd` Refactor scripts to import COM template definitions from com_paths and inject defaults into configurations
+
