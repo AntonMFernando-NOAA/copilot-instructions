@@ -64,3 +64,10 @@
 - `87c302a` Use com_paths.get_com_templates() as base in stage_ic._copy_com_templates()
 - `1b9b542` Use com_paths.get_com_templates() as base in archive_vars.add_config_vars()
 
+
+## 2026-06-25 16:00 UTC (auto)
+**Branch:** `feature/gfsv17-config-com`
+**New commits:**
+- `5138b5d` Add COM template loading to MarineBMat class for Jinja2 rendering
+- `8ab1479` Add COM template loading to SnowAnalysis and SnowEnsAnalysis classes for Jinja2 rendering
+
