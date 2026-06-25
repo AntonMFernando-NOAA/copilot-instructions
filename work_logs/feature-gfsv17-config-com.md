@@ -79,3 +79,9 @@
 - `cc106eb` Add COM_OCEAN_ANALYSIS_TMPL and COM_ICE_ANALYSIS_TMPL to needed templates in MarineRecenter class
 - `8d7d805` Update PYTHONPATH setup in gw_setup.sh to ensure proper precedence for wxflow
 
+
+## 2026-06-25 19:00 UTC (auto)
+**Branch:** `feature/gfsv17-config-com`
+**New commits:**
+- `1af8433` update gw_setup.sh
+
