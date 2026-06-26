@@ -107,3 +107,11 @@
 - `61297bc` Add missing sys import in exglobal_marine_analysis_letkf.py
 - `bb78931` Refactor scripts to inject COM_*_TMPL templates from com_paths with environment overrides
 
+
+## 2026-06-26 17:00 UTC (auto)
+**Branch:** `feature/gfsv17-config-com`
+**New commits:**
+- `9b898ea` [dev/gfs.v17] Hotfix for analysis ecf triggers (#5057)
+- `7a68f0f` (dev/gfs.v17) Add suspend and resume commands for ecflow cycle (#5059)
+- `90ed771` Fix syntax error in logger initialization in exglobal_archive_vrfy.py
+
