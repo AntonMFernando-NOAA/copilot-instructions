@@ -121,3 +121,9 @@
 **New commits:**
 - `e6469b1` Refactor scripts to remove unnecessary imports and streamline COM template handling
 
+
+## 2026-06-29 17:00 UTC (auto)
+**Branch:** `feature/gfsv17-config-com`
+**New commits:**
+- `92bc7ca` update TMPL
+
