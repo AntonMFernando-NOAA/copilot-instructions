@@ -115,3 +115,9 @@
 - `7a68f0f` (dev/gfs.v17) Add suspend and resume commands for ecflow cycle (#5059)
 - `90ed771` Fix syntax error in logger initialization in exglobal_archive_vrfy.py
 
+
+## 2026-06-29 16:00 UTC (auto)
+**Branch:** `feature/gfsv17-config-com`
+**New commits:**
+- `e6469b1` Refactor scripts to remove unnecessary imports and streamline COM template handling
+
