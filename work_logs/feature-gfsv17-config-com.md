@@ -137,3 +137,10 @@
 - `9031d86` (dev/gfs.v17) Adjust analysis triggers to fix occasionally early launched jobs (#5067)
 - `06b28a5` (dev/gfs.v17) Add a cleanup script for ecflow (#5066)
 
+
+## 2026-06-30 20:00 UTC (auto)
+**Branch:** `feature/gfsv17-config-com`
+**New commits:**
+- `de3d711` update GDAS app
+- `957e816` update GDAS app
+
