@@ -246,3 +246,9 @@
 - `5e13f83` Update dev/scripts/exglobal_forecast.sh
 - `4ca2ad9` Add default case to RUN switch (shellcheck SC2249)
 
+
+## 2026-06-30 14:00 UTC (auto)
+**Branch:** `feature/gfsv1-gdas-forecast-mgr`
+**New commits:**
+- `d3338ad` Add model-done sentinel handling for forecast manager synchronization
+
