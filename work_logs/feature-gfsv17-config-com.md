@@ -127,3 +127,13 @@
 **New commits:**
 - `92bc7ca` update TMPL
 
+
+## 2026-06-30 16:00 UTC (auto)
+**Branch:** `feature/gfsv17-config-com`
+**New commits:**
+- `c324706` remove crtm submodule
+- `01dd12d` (dev/gfs.v17) Use fhr3 for atmos product DBN alerts (#5058)
+- `108d856` [dev/gfs.v17] Remove unneeded gcafs/v18 configs from v17 static expdir (#5051)
+- `9031d86` (dev/gfs.v17) Adjust analysis triggers to fix occasionally early launched jobs (#5067)
+- `06b28a5` (dev/gfs.v17) Add a cleanup script for ecflow (#5066)
+
