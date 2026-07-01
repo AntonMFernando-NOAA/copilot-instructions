@@ -151,3 +151,10 @@
 - `8e4a1f4` update gdas app with COMIN-COMOUT vars
 - `e5cb01c` update subproject reference for gdas
 
+
+## 2026-07-01 21:00 UTC (auto)
+**Branch:** `feature/gfsv17-config-com`
+**New commits:**
+- `ba48ef3` refactor: update file path variable for wave GRIB2 products in gfswave.yaml.j2
+- `1c421f0` refactor: rename variable for wave grid file path in gdaswave.yaml.j2
+
