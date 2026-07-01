@@ -144,3 +144,10 @@
 - `de3d711` update GDAS app
 - `957e816` update GDAS app
 
+
+## 2026-07-01 20:00 UTC (auto)
+**Branch:** `feature/gfsv17-config-com`
+**New commits:**
+- `8e4a1f4` update gdas app with COMIN-COMOUT vars
+- `e5cb01c` update subproject reference for gdas
+
