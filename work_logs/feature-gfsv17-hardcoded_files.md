@@ -26,3 +26,9 @@
 - `9b898ea` [dev/gfs.v17] Hotfix for analysis ecf triggers (#5057)
 - `7a68f0f` (dev/gfs.v17) Add suspend and resume commands for ecflow cycle (#5059)
 
+
+## 2026-07-01 17:00 UTC (auto)
+**Branch:** `feature/gfsv17-hardcoded_files`
+**New commits:**
+- `13d2179` Refactor database initialization to use environment variable for DCOM directory
+
