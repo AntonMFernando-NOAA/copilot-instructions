@@ -158,3 +158,9 @@
 - `ba48ef3` refactor: update file path variable for wave GRIB2 products in gfswave.yaml.j2
 - `1c421f0` refactor: rename variable for wave grid file path in gdaswave.yaml.j2
 
+
+## 2026-07-02 19:00 UTC (auto)
+**Branch:** `feature/gfsv17-config-com`
+**New commits:**
+- `c90428f` update subproject commit reference in gdas.cd
+
