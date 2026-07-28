@@ -1,0 +1,9 @@
+{
+  "specType": "feature",
+  "workflow": "requirements-first",
+  "branch": "feature/gfsv17-fcst-atmos",
+  "slug": "feature-gfsv17-fcst-atmos",
+  "issue": "https://github.com/NOAA-EMC/global-workflow/issues/5130",
+  "title": "Retain ATM product logs",
+  "extends": "feature-gfsv1-gdas-forecast-mgr"
+}
