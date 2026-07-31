@@ -289,3 +289,71 @@ Recommended next steps (no code change made this turn):
 
 Note: user confirmed they are an authorized GitLab pipeline triggerer, so the
 `AUTHORIZED_GITLAB_TRIGGER_USERS` gate is satisfied.
+
+## gdas.cd submodule — branch field vs pinned SHA (2026-07-28, Q&A — no code change)
+
+New failure instance: GitLab pipeline for **PR #5134** on branch
+`feature/gfsv17-gsidiag` failed at build (`build-gaeac6`, exit 128) with
+`upload-pack: not our ref ad5efe56de8f48be9a5a568dcaf44859c04601d5` for
+`sorc/gdas.cd`, then `Fetched in submodule path 'sorc/gdas.cd', but it did
+not contain ad5efe56...`. Note this is a **different** SHA than the earlier
+`bfc5cd19...` triage; the local `feature/gfsv17-build` checkout also records
+gitlink `ad5efe56...` for `sorc/gdas.cd` (`git ls-tree HEAD sorc/gdas.cd`).
+Local `git ls-remote` probing was cancelled by the user — this is a
+GitLab-runner-side fetch issue, not locally reproducible.
+
+User question: GDASApp uses branch `release/gfs.v17` in `.gitmodules` — does
+the update use it? **Answer: No, not with the command CI runs.**
+
+- `.gitmodules`: `submodule.sorc/gdas.cd.url =
+  https://github.com/NOAA-EMC/GDASApp.git`, `branch = release/gfs.v17`.
+- `.gitlab-ci.yml` `.build_template` runs `git submodule update --init
+  --recursive -j 8`. Plain `git submodule update` checks out the **exact
+  pinned gitlink SHA** (`ad5efe56...`); it ignores the `branch =` field.
+- The `branch` field is only consulted by `git submodule update --remote`
+  (moves the submodule to the branch tip) or `git submodule set-branch`.
+- Root cause of the error is therefore fetch-reachability of the pinned SHA,
+  not the branch name: `.gitlab-ci.yml` sets `GIT_DEPTH: 10` (shallow), the
+  recursive submodule fetch inherits shallow behavior, and GitHub rejects
+  direct-SHA fetches (`allowReachableSHA1InWant` off). If `ad5efe56...` is
+  outside the depth-10 window (or not on a remote-reachable branch), the
+  fallback direct fetch fails.
+
+Recommended fixes (offered; user has not yet chosen — no edit made):
+1. Preferred: add `GIT_SUBMODULE_DEPTH: 0` to the `variables:` block in
+   `.gitlab-ci.yml` so any reachable pinned SHA is fetchable (root-cause fix,
+   pointer untouched).
+2. Alternative: repin the gitlink to a confirmed remote-reachable
+   `release/gfs.v17` commit (`git submodule update --remote sorc/gdas.cd`
+   then commit) — only with the GDAS owner's confirmed hash.
+
+Open questions:
+- Is `ad5efe56...` actually reachable on `release/gfs.v17`'s remote history?
+  (ls-remote probe was cancelled; needs confirmation.)
+- User decision pending on whether to apply `GIT_SUBMODULE_DEPTH: 0` to
+  `.gitlab-ci.yml`.
+
+## Aside — explained ush/forecast_atm_barrier.sh (2026-07-28, Q&A — no code change)
+
+Off-topic for the CI-profile spec (belongs to the forecast-manager line of
+work), logged here only because the checkout is on `feature/gfsv17-build`.
+
+Explained the ATM barrier script: it runs as the 5th MPMD rank beside the
+four per-product copy ranks (atm_atmf/atm_sfcf/atm_grib/atm_flux) and
+collapses their four per-product `com_log_*` sentinels into the single
+per-hour `gfs.tXXz.log.fHHH.txt` sentinel downstream jobs poll. Confirmed the
+producer side: `ush/forecast_postdet.sh` (`FV3_postdet`, `use_mgr=YES`)
+writes the barrier table rows `final_com_log com_log_atmf com_log_sfcf
+[com_log_grib com_log_flux]` to `${DATAjob}/atm_barrier_seg${seg}_inst${inst}.txt`
+(grib/flux only when `WRITE_DOPOST`). Barrier polls every
+`FCST_MGR_POLL_INTERVAL` (5s); after `fcst_history_done` appears it waits
+`FCST_MGR_POSTDONE_TIMEOUT` (120s) of no-progress then writes WARN sentinels
+to avoid hanging.
+
+Flags raised (no action taken): WARN sentinels look like success to pollers
+that don't read content; no self-limiting timeout before the model's
+history-done sentinel; fatal path uses `echo`+`exit 1` rather than
+`err_exit`/`err_chk`. KB (indexed on develop) had no coverage of this
+GFS-v17 manager work.
+
+No files changed this turn.
